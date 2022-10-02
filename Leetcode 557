@@ -1,0 +1,26 @@
+    string reverse(string s){
+        int st=0,e=s.length()-1;
+        while(st<=e){
+            swap(s[st++],s[e--]);
+        }
+        return s;
+    }
+    string reverseWords(string s) {
+        string temp;
+        string ans="";
+        for(int i=0;i<s.length();i++){
+            if(s[i]==' '){
+                ans=ans+reverse(temp)+" ";
+                temp="";
+            }
+            else{
+                temp=temp+s[i];
+            }
+            if(i==s.length()-1){
+                ans=ans+reverse(temp);
+                temp="";
+            }
+        }
+        return ans;
+    }
+};
