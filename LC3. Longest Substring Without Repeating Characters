@@ -1,0 +1,20 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        re=0
+        for x in range(len(s)):
+            d=dict()
+            c=0
+            e=0
+            while x+e<len(s):
+                try:
+                    d[s[e+x]]
+                except:
+                    d[s[e+x]]=1
+                    c+=1
+                    e+=1
+                    continue
+                break
+            if re<c:
+                re=c
+        return re
+                    
