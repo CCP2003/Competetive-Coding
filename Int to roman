@@ -1,0 +1,21 @@
+class Solution(object):
+    def intToRoman(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        data={1:"I",5:"V",10:"X",50:"L",100:"C",500:"D",1000:"M",4:"IV",9:"IX",40:"XL",90:"XC",400:"CD",900:"CM"}
+        sum=""
+        b=str(num)[::-1]
+        i=0
+        for x in b:
+            n=int(x)
+            print(n*(10**i))
+            if n<=3:
+                sum=data[(10**i)]*n+sum
+            elif 8>=n>=5:
+                sum=data[5*(10**i)]+data[(10**i)]*(n-5)+sum
+            else:
+                sum=data[n*(10**i)]+sum
+            i=i+1
+        return sum
