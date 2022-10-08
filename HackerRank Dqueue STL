@@ -1,0 +1,18 @@
+
+		/* Enter your code here */
+        /* Enter your code here */ 
+        static bool doOnce = false;
+        if(doOnce == false) {
+            cout << setw(0) << left;
+            cout << resetiosflags(ios::uppercase);
+            doOnce = true;
+        }
+         
+        ios init(NULL);
+        init.copyfmt(cout);
+
+        cout << std::hex << std::showbase << (long)A << endl;
+        cout << std::fixed << setw(15) << right << setprecision(2) << setfill('_') << showpos << B << endl;
+        cout << std::scientific << setprecision(9) << setiosflags(ios::uppercase) << noshowpos << C << endl;
+        
+        cout.copyfmt(init);
