@@ -1,0 +1,18 @@
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        
+        matrix = sum(matrix, [])
+        N = len(matrix)
+               
+        def _search_matrix(matrix, left=0, right=N):
+            if right <= left:
+                return False
+            
+            mid = (right + left) // 2
+            if matrix[mid] == target:
+                return True
+            if matrix[mid] > target:
+                return _search_matrix(matrix, left=left, right=mid)
+            return _search_matrix(matrix, left=mid + 1, right=right)
+        
+        return _search_matrix(matrix)
